@@ -8,6 +8,8 @@ import Dashboard from "@/pages/dashboard";
 import CallLogs from "@/pages/call-logs";
 import DeliverySettings from "@/pages/delivery-settings";
 import AiConfiguration from "@/pages/ai-configuration";
+import PhoneNumbers from "@/pages/phone-numbers";
+import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -17,6 +19,8 @@ function Router() {
       <Route path="/call-logs" component={CallLogs} />
       <Route path="/delivery-settings" component={DeliverySettings} />
       <Route path="/ai-configuration" component={AiConfiguration} />
+      <Route path="/phone-numbers" component={PhoneNumbers} />
+      <Route path="/settings" component={Settings} />
       <Route component={NotFound} />
     </Switch>
   );
