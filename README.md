@@ -170,7 +170,7 @@ Edit
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard Screenshot](./Assets/Screenshot%202025-08-19%20at%203.26.47 PM.png)
+![Dashboard Screenshot](./Assets/Dashboard.png)
 
 ### ParcelPal Mascot
 ![Mascot](./Assets/robo-demo.png)
