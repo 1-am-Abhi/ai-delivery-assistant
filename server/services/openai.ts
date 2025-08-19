@@ -1,10 +1,16 @@
 import OpenAI from "openai";
 
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_SECRET || process.env.API_KEY 
-});
+let openai: OpenAI | null = null;
 
+// Initialize OpenAI client only if API key is available
+if (process.env.OPENAI_API_KEY || process.env.OPENAI_SECRET || process.env.API_KEY) {
+  openai = new OpenAI({ 
+    apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_SECRET || process.env.API_KEY 
+  });
+} else {
+  console.warn('OpenAI API key not found. AI functionality will be limited.');
+}
 export interface ConversationContext {
   deliveryInstructions: string;
   allowCod: boolean;
@@ -25,6 +31,16 @@ export class OpenAIService {
       isCompleted: boolean;
     };
   }> {
+    if (!openai) {
+      return {
+        response: "AI service is not configured. Please contact support.",
+        shouldEscalate: true,
+        extractedInfo: {
+          isCompleted: false,
+        }
+      };
+    }
+    
     try {
       const systemPrompt = `You are an AI assistant handling delivery calls in India. You can speak both Hindi and English fluently, understanding code-mixed conversations.
 
@@ -98,6 +114,10 @@ Respond with JSON in this format:
   }
 
   static async transcribeAudio(audioBuffer: Buffer): Promise<string> {
+    if (!openai) {
+      throw new Error('OpenAI service is not configured');
+    }
+    
     try {
       const transcription = await openai.audio.transcriptions.create({
         file: new File([audioBuffer], 'audio.wav', { type: 'audio/wav' }),
@@ -113,6 +133,10 @@ Respond with JSON in this format:
   }
 
   static async generateSpeech(text: string): Promise<Buffer> {
+    if (!openai) {
+      throw new Error('OpenAI service is not configured');
+    }
+    
     try {
       const response = await openai.audio.speech.create({
         model: 'tts-1',
