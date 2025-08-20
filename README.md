@@ -9,7 +9,7 @@ Your friendly AI assistant that handles delivery calls in Hindi and English, mak
 📦 Ever waited for a delivery, only to:  
 - 🤯 Struggle with Hindi-English code-mixed calls?  
 - 📍 Explain “I live behind the temple, near chai stall” again and again?  
-- 💸 Deal with confusion about COD, OTP, or delivery instructions?  
+- 💸 Deal with confusion about COD, OTP, or delivery instructions?
 
 **ParcelPal fixes all of this.**  
 Think of it as your multilingual friend who talks to delivery partners in Hindi + English seamlessly, making communication crystal clear.
@@ -17,11 +17,12 @@ Think of it as your multilingual friend who talks to delivery partners in Hindi 
 ---
 
 ## 🎯 What ParcelPal Does
-✅ Multilingual Conversations – Hindi, English, Hinglish (natural switching)  
-✅ Smart Address Resolution – Understands landmarks like *“next to chai stall”*  
-✅ Delivery Coordination – COD, OTP, and instructions handled  
-✅ Twilio Integration – Works with existing call flows  
-✅ AI-Powered – Learns & improves with each call  
+
+- ✅ Multilingual Conversations – Hindi, English, Hinglish (natural switching)  
+- ✅ Smart Address Resolution – Understands landmarks like *“next to chai stall”*  
+- ✅ Delivery Coordination – COD, OTP, and instructions handled  
+- ✅ Twilio Integration – Works with existing call flows  
+- ✅ AI-Powered – Learns & improves with each call  
 
 ---
 
@@ -39,9 +40,7 @@ Think of it as your multilingual friend who talks to delivery partners in Hindi 
 ↓
 ✅ Delivery Complete!
 
-yaml
-Copy
-Edit
+text
 
 ---
 
@@ -50,151 +49,122 @@ Edit
 **Monorepo with 3 Layers:**
 
 parcel-pal/
-├── client/ 🎨 React + TS (Frontend)
+├── client/ 🎨 React + TypeScript (Frontend)
 ├── server/ ⚙️ Express + Twilio + OpenAI (Backend)
 └── shared/ 🔄 Type-safe Schemas (DB + Validation)
 
-yaml
-Copy
-Edit
+text
 
 **Tech Stack:**
+
 - 🎨 Frontend: React, Shadcn/ui, Wouter, TanStack Query  
 - ⚙️ Backend: Express, Drizzle ORM, PostgreSQL, Twilio API  
 - 🔄 Shared: Zod + TypeScript schemas  
 
 ---
 
-## 🗄️ Database Schema (Visual)
+## 🗄️ Database Schema
 
-📂 users
-└─ user_id | name | phone
+**users**
 
-📂 callLogs
-└─ call_id | transcript | status
+| user_id | name | phone |
 
-📂 deliverySettings
-└─ user_id | COD | OTP | notes
+**callLogs**
 
-📂 aiConfiguration
-└─ voice_model | language | personality
+| call_id | transcript | status |
 
-yaml
-Copy
-Edit
+**deliverySettings**
+
+| user_id | COD | OTP | notes |
+
+**aiConfiguration**
+
+| voice_model | language | personality |
 
 ---
 
 ## ⚡ Quick Start
 
-```bash
-# Clone
+Clone repo
 git clone https://github.com/1-am-Abhi/ai-delivery-assistant
-cd parcel-pal
+cd ai-delivery-assistant
 
-# Install
+Install dependencies
 npm install
 
-# Env setup
+Setup environment variables
 cp .env.example .env
 
-# Run in Dev
+Run locally in dev mode
 npm run dev
 
-# Push Schema
+Push database schema
 npm run db:push
-📱 Example Conversation
-👨 Customer: “Bhaiya, delivery mandir ke peeche chhod dena.”
-🤖 ParcelPal: “ठीक है! Behind the temple noted. Will update delivery partner.”
-📦 Result: Smooth delivery ✅
 
-🌍 Designed for India
-🇮🇳 ParcelPal understands:
+text
 
-Hinglish conversations (mix of Hindi + English)
+---
 
-Local landmarks (chai stall, kirana shop)
+## 🌍 Designed for India
 
-Indian phone formats (+91)
+- Hinglish conversations (Hindi + English code-mixed)  
+- Local landmarks (chai stall, kirana shop, mandir)  
+- Indian phone number formats (+91)  
+- Cash On Delivery & OTP verification flows  
 
-Cash on Delivery, OTP flows
+---
 
-🔌 API Endpoints
-📞 Call Management
-GET /api/calls → Fetch call logs
+## 🔌 API Endpoints
 
-POST /api/calls → Create new call log
+**Call Management**
 
-PUT /api/calls/:id → Update call status
+- `GET /api/calls` — Fetch call logs  
+- `POST /api/calls` — Create new call log  
+- `PUT /api/calls/:id` — Update call status  
 
-⚙️ Settings
-GET /api/settings/delivery → Get delivery config
+**Settings**
 
-PUT /api/settings/delivery → Update delivery config
+- `GET /api/settings/delivery` — Get delivery config  
+- `PUT /api/settings/delivery` — Update delivery config  
+- `GET /api/settings/ai` — Get AI config  
+- `PUT /api/settings/ai` — Update AI config  
 
-GET /api/settings/ai → Get AI config
+**Twilio Webhooks**
 
-PUT /api/settings/ai → Update AI config
+- `POST /api/twilio/voice` — Handle incoming call  
+- `POST /api/twilio/gather/:callId` — Process speech from delivery agent  
 
-📞 Twilio Webhooks
-POST /api/twilio/voice → Handle incoming call
+---
 
-POST /api/twilio/gather/:callId → Process speech
+## 👀 Visual Demo
 
-🛠️ Dev Tools
-🟦 TypeScript everywhere
-🛢️ Drizzle ORM + PostgreSQL
-⚡ Vite + ESBuild for builds
-✅ Zod for runtime validation
-
-🚀 Deployment
-🌐 Frontend → Vercel / Netlify
-⚙️ Backend → Railway / Render
-🛢️ Database → NeonDB (serverless Postgres)
-📞 Voice Infra → Twilio
-
-👀 Visual Demo Idea
-You can add these visuals/screenshots/GIFs in README for better engagement:
-
-📦 ParcelPal Logo + Mascot (Friendly robot with a delivery box 🤖)
-
-🛠️ Call Flow Diagram (Twilio → AI → Delivery)
-
-🖥️ Dashboard Screenshot (React UI with call logs + settings)
-
-💬 Sample Conversation Card (Customer vs AI chat bubbles)
-
-markdown
-Copy
-Edit
-##  Screenshots
-
-### Dashboard
 ![Dashboard Screenshot](https://raw.githubusercontent.com/1-am-Abhi/ai-delivery-assistant/main/Assets/Dashboard.png)
 
-### ParcelPal Mascot
+### ParcelPal Mascot  
 ![Mascot](https://raw.githubusercontent.com/1-am-Abhi/ai-delivery-assistant/main/Assets/robo-demo.png)
 
-🤝 Contributing
-Fork
+---
 
-Create branch
+## 🤝 Contributing
 
-Commit
+- Fork the repo  
+- Create a new branch  
+- Make your changes  
+- Push and open a pull request  
+- Follow TypeScript best practices  
+- Update docs where applicable  
 
-Open PR
+---
 
-✅ Follow TypeScript best practices
-✅ Update docs when adding features
+## 📧 Contact & Support
 
-📧 Support
-🐛 GitHub Issues
+- Report issues on [GitHub Issues](https://github.com/1-am-Abhi/ai-delivery-assistant/issues)  
+- Join community discussions  
+- Refer to documentation for advanced setup  
 
-💬 Community Discussions
+---
 
-📖 Docs
+## ✨ Tagline
 
-✨ Final Tagline
-ParcelPal – Making Indian deliveries human again. 🚚🇮🇳
-
+ParcelPal – Making Indian deliveries human again. 🚚🇮🇳  
 Built with ❤️ for the Indian delivery ecosystem.
