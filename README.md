@@ -170,10 +170,10 @@ Edit
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard Screenshot](./Assets/Dashboard.png)
+![Dashboard Screenshot](Assets/Dashboard.png)
 
 ### ParcelPal Mascot
-![Mascot](./Assets/robo-demo.png)
+![Mascot](Assets/robo-demo.png)
 🤝 Contributing
 Fork
 
