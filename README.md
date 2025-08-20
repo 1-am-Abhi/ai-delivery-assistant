@@ -167,7 +167,7 @@ You can add these visuals/screenshots/GIFs in README for better engagement:
 markdown
 Copy
 Edit
-## 📸 Screenshots
+##  Screenshots
 
 ### Dashboard
 ![Dashboard Screenshot](https://raw.githubusercontent.com/1-am-Abhi/ai-delivery-assistant/main/Assets/Dashboard.png)
