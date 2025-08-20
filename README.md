@@ -170,10 +170,11 @@ Edit
 ##  Screenshots
 
 ### Dashboard
-![Dashboard Screenshot](Assets/Dashboard.png)
+![Dashboard Screenshot](https://raw.githubusercontent.com/1-am-Abhi/ai-delivery-assistant/main/Assets/Dashboard.png)
 
 ### ParcelPal Mascot
-![Mascot](Assets/robo-demo.png)
+![Mascot](https://raw.githubusercontent.com/1-am-Abhi/ai-delivery-assistant/main/Assets/robo-demo.png)
+
 🤝 Contributing
 Fork
 
