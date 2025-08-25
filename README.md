@@ -140,11 +140,6 @@ text
 
 ![Dashboard Screenshot](https://raw.githubusercontent.com/1-am-Abhi/ai-delivery-assistant/main/Assets/Dashboard.png)
 
-### ParcelPal Mascot  
-![Mascot](https://raw.githubusercontent.com/1-am-Abhi/ai-delivery-assistant/main/Assets/robo-demo.png)
-
----
-
 ## 🤝 Contributing
 
 - Fork the repo  
