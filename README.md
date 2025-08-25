@@ -161,5 +161,5 @@ text
 
 ## ✨ Tagline
 
-ParcelPal – Making Indian deliveries human again. 🚚🇮🇳  
+AI-DELIVERY-AGENT – Making Indian deliveries human again. 🚚🇮🇳  
 Built with ❤️ for the Indian delivery ecosystem.
